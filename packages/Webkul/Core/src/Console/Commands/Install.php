@@ -73,6 +73,8 @@ class Install extends Command
         $result = shell_exec('composer dump-autoload');
         $this->info($result);
 
+        if (is_dir('public/installer')) shell_exec('rm -r public/installer');
+
         // final information
         $this->info('-----------------------------');
         $this->info('Congratulations!');
